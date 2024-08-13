@@ -6,6 +6,7 @@
 * [kaggle:color_names.csv](https://www.kaggle.com/datasets/avi1023/color-names)
 * [kaggle:colors.csv](https://www.kaggle.com/datasets/josiebarber/all-colors-according-to-wikipedia)
 * [github: color_names.json](https://github.com/jonathantneal/color-names/blob/master/color-names.json)
+* [ppg paints](https://www.ppgpaints.com/color/color-families/browse-all-colors)
 * xkcd.json
 
 ## Machine Learning
