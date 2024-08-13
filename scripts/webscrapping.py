@@ -1,6 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
 import pandas as pd
+import os
+
 
 URL = "https://www.ppgpaints.com/color/color-families/browse-all-colors"
 HTML_FILE = "data/colors.html"
@@ -60,22 +62,22 @@ def save_color_df(df):
     df.to_csv("data/colors_pgp.csv", index=False)
 
 
+def validate_file_exists(file):
+    return os.path.exists(file)
+
+
 def main():
+    if validate_file_exists(CSV_FILE):
+        print("File already exists")
+        return
     html = get_html(URL)
     # html = read_html(HTML_FILE)
     soup = get_soup(html)
     colors = find_colors(soup)
     df = create_color_df(colors)
     save_color_df(df)
-    print(df.head(4))
-
-
-def test():
-    a = 'style="background-color: rgb(213, 216, 215)'
-    color = a.split("rgb(")[-1].split(",")[0]
-    print(color)
+    print("PGP File Created", df.head(4))
 
 
 if __name__ == "__main__":
     main()
-
