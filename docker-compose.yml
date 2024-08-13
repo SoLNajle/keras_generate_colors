@@ -1,0 +1,25 @@
+services:
+  data_preprocessing:
+    build:
+      context: .
+      dockerfile: ./docker/python/Dockerfile
+    volumes:
+      - ./data:/data
+      - ./scripts:/scripts
+    command: >
+      python3 scripts/webscrapping.py 
+    container_name: data_preprocessing_keras
+
+  jupyter:
+    build:
+      context: .
+      dockerfile: ./docker/jupyter/Dockerfile
+    volumes:
+      - ./work:/home/jovyan/work
+      - ./data:/home/jovyan/data
+    ports:
+      - 1111:8888
+    container_name: jupyter_notebook_keras
+    command: "start-notebook.sh --NotebookApp.token="
+    depends_on:
+      - data_preprocessing
