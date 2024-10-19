@@ -1,5 +1,21 @@
 #generate csv files
-color_names_all.csv
 colors_pgp.csv
 # models folder
 models/
+
+#MAc files
+.DS_Store
+
+# Ignore virtual environments
+keras-env/
+
+# Ignore Python cache files
+__pycache__/
+*.pyc
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
